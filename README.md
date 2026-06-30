@@ -96,7 +96,7 @@ Launch the React development server:
 ```bash
 npm start
 ```
-The application will open automatically at [http://localhost:3000](http://localhost:3000). The server supports live-reloading.
+The application will open automatically at [https://rahulsinghportfolio-info.netlify.app/](https://rahulsinghportfolio-info.netlify.app/). The server supports live-reloading.
 
 ### 4. Build for Production
 To bundle the portfolio into static assets optimized for production deployments:
