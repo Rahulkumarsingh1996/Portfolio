@@ -5,11 +5,11 @@ const ScrollDown = ({ theamLight }) => {
   return (
     <div className="home__scroll">
       <a href="#about" className="home__scroll-button button--flex">
-        <i class="uil uil-mouse-alt"></i>
+        <i className="uil uil-mouse-alt"></i>
         <span className="home__scroll-name" style={textColorStyle}>
           Scroll Down
         </span>
-        <i class="uil uil-arrow-down home__scroll-arrow" style={textColorStyle}></i>
+        <i className="uil uil-arrow-down home__scroll-arrow" style={textColorStyle}></i>
       </a>
     </div>
   );

@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-regular-svg-icons";
+import { TiWeatherSunny } from "react-icons/ti";
+
 const Header = ({ onButtonClick, blackAndWhite }) => {
   /* ---------------- change background color -------------------- */
-  window.addEventListener("scroll", function () {
-    const header = this.document.querySelector(".header");
-    if (this.scrollY >= 80) header.classList.add("scroll-header");
-    else header.classList.remove("scroll-header");
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector(".header");
+      if (header) {
+        if (window.scrollY >= 80) header.classList.add("scroll-header");
+        else header.classList.remove("scroll-header");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const [Toggle, showMenu] = useState(false);
   const [activeNav, setActiveNav] = useState("#home");
@@ -21,7 +32,7 @@ const Header = ({ onButtonClick, blackAndWhite }) => {
   return (
     <header id="header" className={headerClassName}>
       <nav className="nav container">
-        <a href="index.html" className="nav__logo">
+        <a href="#home" className="nav__logo">
           Rahul
         </a>
 
@@ -33,7 +44,10 @@ const Header = ({ onButtonClick, blackAndWhite }) => {
             <li className="nav__item">
               <a
                 href="#home"
-                onClick={() => setActiveNav("#home")}
+                onClick={() => {
+                  setActiveNav("#home");
+                  showMenu(false);
+                }}
                 className={
                   activeNav === "#home" ? "nav__link active-link" : "nav__link"
                 }
@@ -45,7 +59,10 @@ const Header = ({ onButtonClick, blackAndWhite }) => {
             <li className="nav__item">
               <a
                 href="#about"
-                onClick={() => setActiveNav("#about")}
+                onClick={() => {
+                  setActiveNav("#about");
+                  showMenu(false);
+                }}
                 className={
                   activeNav === "#about" ? "nav__link active-link" : "nav__link"
                 }
@@ -57,7 +74,10 @@ const Header = ({ onButtonClick, blackAndWhite }) => {
             <li className="nav__item">
               <a
                 href="#skills"
-                onClick={() => setActiveNav("#skills")}
+                onClick={() => {
+                  setActiveNav("#skills");
+                  showMenu(false);
+                }}
                 className={
                   activeNav === "#skills"
                     ? "nav__link active-link"
@@ -71,7 +91,10 @@ const Header = ({ onButtonClick, blackAndWhite }) => {
             <li className="nav__item">
               <a
                 href="#qualification"
-                onClick={() => setActiveNav("#qualification")}
+                onClick={() => {
+                  setActiveNav("#qualification");
+                  showMenu(false);
+                }}
                 className={
                   activeNav === "#qualification"
                     ? "nav__link active-link"
@@ -84,8 +107,28 @@ const Header = ({ onButtonClick, blackAndWhite }) => {
 
             <li className="nav__item">
               <a
+                href="#portfolio"
+                onClick={() => {
+                  setActiveNav("#portfolio");
+                  showMenu(false);
+                }}
+                className={
+                  activeNav === "#portfolio"
+                    ? "nav__link active-link"
+                    : "nav__link"
+                }
+              >
+                <i className="uil uil-briefcase-alt nav__icon"></i>Portfolio
+              </a>
+            </li>
+
+            <li className="nav__item">
+              <a
                 href="#contact"
-                onClick={() => setActiveNav("#contact")}
+                onClick={() => {
+                  setActiveNav("#contact");
+                  showMenu(false);
+                }}
                 className={
                   activeNav === "#contact"
                     ? "nav__link active-link"
@@ -98,25 +141,25 @@ const Header = ({ onButtonClick, blackAndWhite }) => {
 
             <div className="toggle-color-button" onClick={onButtonClick}>
               {blackAndWhite ? (
-                <FontAwesomeIcon icon={faSun} />
+                <i className="uil uil-sun" style={{ fontSize: "1.25rem", color: "white" }}></i>
               ) : (
-                <FontAwesomeIcon icon={faMoon} />
+                <i className="uil uil-moon" style={{ fontSize: "1.25rem" }}></i>
               )}
             </div>
           </ul>
           <i
-            class="uil uil-times nav__close"
-            onClick={() => showMenu(!Toggle)}
+            className="uil uil-times nav__close"
+            onClick={() => showMenu(false)}
             style={textColorStyle}
           ></i>
         </div>
 
         <div
           className="nav__toggle"
-          onClick={() => showMenu(!Toggle)}
+          onClick={() => showMenu(true)}
           style={textColorStyle}
         >
-          <i class="uil uil-apps"></i>
+          <i className="uil uil-apps"></i>
         </div>
       </nav>
     </header>

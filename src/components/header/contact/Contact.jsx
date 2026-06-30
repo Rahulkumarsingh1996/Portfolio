@@ -35,10 +35,10 @@ const Contact = ({ blackAndWhite }) => {
     } else {
       emailjs
         .sendForm(
-          "service_jrirb6f",
+          "service_8feakwc",
           "template_ymy57me",
           form.current,
-          "T878eAAIFA063D1YP"
+          "8Erk8l4ErfbtBVTUY"
         )
         .then(
           (result) => {
@@ -52,6 +52,7 @@ const Contact = ({ blackAndWhite }) => {
           },
           (error) => {
             console.log("Email error..", error.text);
+            toast.error("Failed to send message: " + error.text);
           }
         );
     }
@@ -72,27 +73,29 @@ const Contact = ({ blackAndWhite }) => {
           </h3>
 
           <div className="contact__info">
-            <div className="contact__card">
-              <i className="bx bx-mail-send contact__card-icon"></i>
+            <div className="contact__card" style={{ "--glow-color": "rgba(227, 79, 38, 0.15)", "--tech-color": "#e34f26" }}>
+              <i className="bx bx-mail-send contact__card-icon" style={{ color: "#e34f26" }}></i>
               <h3 className="contact__card-title">Email</h3>
               <span className="contact__card-data">
                 singhrahul841412@gmail.com
               </span>
 
-              <a href="https://mail.google.com" className="contact__button">
+              <a href="mailto:singhrahul841412@gmail.com" className="contact__button">
                 Write me{" "}
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
               </a>
             </div>
 
-            <div className="contact__card">
-              <i class="uil uil-whatsapp contact__card-icon"></i>
-              <h3 className="contact__card-title">Whatsapp</h3>
+            <div className="contact__card" style={{ "--glow-color": "rgba(37, 211, 102, 0.15)", "--tech-color": "#25d366" }}>
+              <i className="uil uil-whatsapp contact__card-icon" style={{ color: "#25d366" }}></i>
+              <h3 className="contact__card-title">WhatsApp</h3>
               <span className="contact__card-data">867-882-7215</span>
 
               <a
-                href="https://web.whatsapp.com/ccd"
+                href="https://wa.me/918678827215"
                 className="contact__button"
+                target="_blank"
+                rel="noreferrer"
               >
                 Write me{" "}
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
@@ -171,7 +174,7 @@ const Contact = ({ blackAndWhite }) => {
               className="button button--flex"
               style={backgroundButtonColorStyle}
             >
-              send message<i class="uil uil-message"></i>
+              send message<i className="uil uil-message"></i>
             </button>
           </form>
         </div>

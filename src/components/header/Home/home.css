@@ -1,31 +1,65 @@
 .home__container {
   row-gap: 4rem;
 }
+
 .home__content {
   grid-template-columns: 116px repeat(2, 1fr);
   padding-top: 5.5rem;
   column-gap: 2rem;
   align-items: center;
 }
+
+/* --- Social Icons --- */
 .home__social {
   display: grid;
   grid-template-columns: max-content;
-  row-gap: 1rem;
-}
-#linkedin {
-  background-color: #3865b2;
-}
-.custom-typewriter-dark {
-  color: white;
+  row-gap: 1.25rem;
 }
 
-/* Light theme */
-.custom-typewriter-light {
-  color: black;
+.home__social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.35rem;
+  color: var(--title-color, #333);
+  background-color: transparent;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
 }
-.black-and-white .custom-typewriter-wrapper{
-color: #fff;
+
+.home__social-icon:hover {
+  transform: translateX(4px) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
+/* Specific Brands Hover */
+.home__social-icon.github:hover {
+  background-color: #333;
+  border-color: transparent;
+  color: #fff !important;
+}
+
+.home__social-icon.linkedin:hover {
+  background-color: #0077b5;
+  border-color: transparent;
+  color: #fff !important;
+}
+
+.home__social-icon.whatsapp:hover {
+  background-color: #25d366;
+  border-color: transparent;
+  color: #fff !important;
+}
+
+/* --- Typewriter --- */
+.black-and-white .custom-typewriter-wrapper {
+  color: #fff;
+}
+
 .custom-typewriter-wrapper {
   color: var(--title-color);
   position: relative;
@@ -33,7 +67,8 @@ color: #fff;
   padding-left: 5.4rem;
   font-weight: var(--font-normal);
   margin-bottom: var(--mb-1);
-}           
+}
+
 .custom-typewriter-wrapper::before {
   position: absolute;
   content: "";
@@ -43,63 +78,80 @@ color: #fff;
   left: 0;
   top: 1rem;
 }
-.custom-typewriter-cursor {
-  color: black;
-}
-.home__social-icon {
-  font-size: 1.6rem;
-  color: var(--title-color);
-}
 
-.home__social-icon:hover {
-  color: var(--title-color-dark);
+.custom-typewriter-cursor {
+  color: var(--title-color);
 }
 
 .home__title {
   font-size: var(--big-font-size);
-  margin-bottom: var(--mb-0-25);
-}
-
-.home__subtitle {
-  position: relative;
-  font-size: var(--h3-font-size);
-  padding-left: 5.4rem;
-  font-weight: var(--font-normal);
-  margin-bottom: var(--mb-1);
-}
-.home__subtitle::before {
-  position: absolute;
-  content: "";
-  width: 70px;
-  height: 1px;
-  background-color: var(--text-color);
-  left: 0;
-  top: 1rem;
+  font-weight: var(--font-semi-bold, 600);
+  margin-bottom: var(--mb-0-5);
 }
 
 .home__description {
   max-width: 400px;
-  margin-bottom: var(--mb-2);
+  margin-bottom: var(--mb-2-5);
+  line-height: 1.6;
+  color: var(--text-color, #666);
+}
+
+/* --- Profile Image --- */
+.home__img-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 1;
+  justify-self: center;
+}
+
+.home__img-glow {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  background: radial-gradient(circle, rgba(160, 97, 251, 0.25) 0%, rgba(97, 218, 251, 0.15) 50%, transparent 100%);
+  filter: blur(25px);
+  z-index: -1;
+  animation: float-glow 6s ease-in-out infinite alternate;
+}
+
+.black-and-white .home__img-glow {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+}
+
+@keyframes float-glow {
+  0% {
+    transform: scale(1) translate(0, 0);
+    border-radius: 50%;
+  }
+  50% {
+    transform: scale(1.1) translate(10px, -10px);
+    border-radius: 45% 55% 50% 50%;
+  }
+  100% {
+    transform: scale(0.95) translate(-10px, 10px);
+    border-radius: 50%;
+  }
 }
 
 .home__img {
-  /* background: url(../../../assets/rahhul\ doc.jpg); */
   background: url(../../../assets/newrahul.png);
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: inset 0 0 0 8px rgba(255 255 255 / 30%);
-  order: 1;
-  justify-self: center;
+  box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.3);
   background-size: cover;
   height: 315px;
   width: 315px;
   animation: profile__animate 8s ease-in-out infinite 1s;
-  
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
 }
-.home__img:hover{
-  transform: scale(1.2);
-  transition: transform .2s;
+
+.home__img:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: inset 0 0 0 12px rgba(255, 255, 255, 0.4), 0 15px 35px rgba(0, 0, 0, 0.12);
 }
+
 @keyframes profile__animate {
   0% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -112,9 +164,16 @@ color: #fff;
   }
 }
 
+/* --- Scroll Indicator --- */
 .home__scroll {
   margin-left: 9.25rem;
+  transition: transform 0.3s ease;
 }
+
+.home__scroll:hover {
+  transform: translateY(4px);
+}
+
 .wheel {
   animation: scroll 2s ease infinite;
 }
@@ -124,7 +183,7 @@ color: #fff;
     transform: translateY(0);
   }
   30% {
-    transform: translateY(3.75rem);
+    transform: translateY(0.35rem);
   }
 }
 
@@ -134,26 +193,42 @@ color: #fff;
   margin-right: var(--mb-0-25);
   margin-left: 2px;
 }
+
 .home__scroll-arrow {
   font-size: 1.25rem;
   color: var(--title-color);
 }
 
-/* -------------------------- BREAKPOINTS -------------------- */
+/* --- Dark Mode Modifiers --- */
+.black-and-white .home__social-icon {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
 
-/* -------- for large device ---- */
+.black-and-white .home__social-icon:hover {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
 
+.black-and-white .home__social-icon.github:hover {
+  background-color: #fff;
+  color: #000 !important;
+}
+
+.black-and-white .custom-typewriter-cursor {
+  color: #fff;
+}
+
+/* ==================== BREAKPOINTS ==================== */
 @media screen and (max-width: 992px) {
   .home__content {
     grid-template-columns: 100px repeat(2, 1fr);
     column-gap: 1.25rem;
   }
-  .home__subtitle {
+  .custom-typewriter-wrapper {
     padding-left: 3.75rem;
     margin-bottom: var(--mb-1);
   }
-
-  .home__subtitle::before {
+  .custom-typewriter-wrapper::before {
     width: 24px;
     top: 0.8em;
   }
@@ -164,7 +239,6 @@ color: #fff;
   .home__img {
     width: 250px;
     height: 250px;
-    box-shadow: inset 0 0 0 8px rgba(255 255 255 / 30%);
   }
   .home__scroll {
     margin-left: 7.5rem;
@@ -175,24 +249,27 @@ color: #fff;
   }
 }
 
-/* -------- for medium device ---- */
-
 @media screen and (max-width: 768px) {
   .home__content {
     grid-template-columns: 0.5fr 3fr;
-    padding-top: 3.5rem;
+    padding-top: 6rem;
+    column-gap: 1.5rem;
+    align-items: center;
+  }
+  .home__img-wrapper {
+    order: initial;
+    justify-self: center;
   }
   .home__img {
-    order: initial;
-    justify-self: initial;
+    height: 200px;
+    width: 200px;
+  }
+  .home__img-glow {
+    width: 220px;
+    height: 220px;
   }
   .home__data {
     grid-column: 1/3;
-  }
-  .home__img {
-    box-shadow: inset 0 0 0 6px rgba(255 255 255 / 30%);
-    height: 200px;
-    width: 200px;
   }
   .home__scroll {
     display: none;
@@ -201,14 +278,24 @@ color: #fff;
     font-size: var(--h1-font-size);
     margin-bottom: var(--mb-0-25);
   }
+  .home__social {
+    row-gap: 1rem;
+  }
+  .home__social-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.15rem;
+  }
 }
-
-/* -------- for small device ---- */
 
 @media screen and (max-width: 350px) {
   .home__img {
     width: 180px;
     height: 180px;
+  }
+  .home__img-glow {
+    width: 200px;
+    height: 200px;
   }
   .home__title {
     font-size: var(--h1-font-size);

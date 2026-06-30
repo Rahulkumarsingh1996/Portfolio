@@ -8,10 +8,10 @@ const Data = ({ theamLight }) => {
     ? { backgroundColor: "white", color: "black" }
     : null;
   useEffect(() => {
-    console.log("theamLight in Home component:", theamLight);
+    // console.log("theamLight in Home component:", theamLight);
   }, [theamLight]);
 
-  
+
   return (
     <div className="home__data" data-aos="fade-left">
       <h1 className="home__title" style={textColorStyle}>
@@ -19,7 +19,7 @@ const Data = ({ theamLight }) => {
       </h1>
       <Typewriter
         options={{
-          strings: ["Mobile App Developer", "Web Developer"],
+          strings: ["Mobile App Developer", "Frontend Developer"],
           autoStart: true,
           loop: true,
           wrapperClassName: "custom-typewriter-wrapper",
@@ -27,11 +27,8 @@ const Data = ({ theamLight }) => {
         }}
       />
 
-      {/* <h3 className="home__subtitle" style={textColorStyle}>
-        Front-end Developer{" "}
-      </h3> */}
       <p className="home__description" style={textColorStyle}>
-        I'm very passionate and dedicated to my work.
+        Passionate React Native Developer dedicated to crafting high-performance mobile applications and beautiful user interfaces.
       </p>
       <br />
 
@@ -40,7 +37,7 @@ const Data = ({ theamLight }) => {
         className="button button--flex"
         style={backgroundButtonColorStyle}
       >
-        say Hello<i class="uil uil-message"></i>
+        say Hello<i className="uil uil-message"></i>
       </a>
     </div>
   );

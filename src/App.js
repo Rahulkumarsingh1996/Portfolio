@@ -5,6 +5,7 @@ import Home from "./components/header/Home/Home";
 import About from "./components/header/about/About";
 import Skills from "./components/header/skills/Skills";
 import Qualification from "./components/header/qualification/Qualification";
+import Work from "./components/header/work/Work";
 import Contact from "./components/header/contact/Contact";
 import Footer from "./components/header/footer/Footer";
 import Scrollup from "./components/header/scrollup/Scrollup";
@@ -17,7 +18,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 3000);
   }, []);
 
   const [blackAndWhite, setBlackAndWhite] = useState(false);
@@ -26,7 +27,7 @@ function App() {
     setBlackAndWhite(!blackAndWhite);
   };
 
-  const headerClassName = `header ${blackAndWhite ? "black-and-white" : ""}`;
+  const wrapperClassName = `app-wrapper ${blackAndWhite ? "black-and-white" : ""}`;
 
   return (
     <div >
@@ -43,17 +44,21 @@ function App() {
           />
         </div>
       ) : (
-        <div className={headerClassName}>
-          <Header onButtonClick={handleButtonClick} blackAndWhite={blackAndWhite}/>
+        <div className={wrapperClassName}>
+          <div className="ambient-blob blob-1"></div>
+          <div className="ambient-blob blob-2"></div>
+          <div className="ambient-blob blob-3"></div>
+          <Header onButtonClick={handleButtonClick} blackAndWhite={blackAndWhite} />
 
           <main className="main">
-            <Home blackAndWhite={blackAndWhite}/>
-            <About blackAndWhite={blackAndWhite}/>
-            <Skills blackAndWhite={blackAndWhite}/>
-            <Qualification blackAndWhite={blackAndWhite}/>
-            <Contact blackAndWhite={blackAndWhite}/>
+            <Home blackAndWhite={blackAndWhite} />
+            <About blackAndWhite={blackAndWhite} />
+            <Skills blackAndWhite={blackAndWhite} />
+            <Qualification blackAndWhite={blackAndWhite} />
+            <Work blackAndWhite={blackAndWhite} />
+            <Contact blackAndWhite={blackAndWhite} />
           </main>
-          <Footer blackAndWhite={blackAndWhite}/>
+          <Footer blackAndWhite={blackAndWhite} />
           <Scrollup blackAndWhite={blackAndWhite} />
         </div>
       )}

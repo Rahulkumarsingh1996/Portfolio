@@ -28,10 +28,7 @@ const About = ({ blackAndWhite }) => {
           <Info />
 
           <p className="about__description" style={textColorStyle}>
-            Fronted developer, I create web magnificent pages and App
-            magnificent Screens with UI / UX user , Interface , I have one year
-            of experience and three projects are completed to happy with the
-            carried out.
+            Motivated React Native Developer with 3+ years of experience building high-performance mobile applications for iOS and Android. Delivered 12+ end-to-end projects across Healthcare, CRM, and Fintech domains. Skilled in RESTful APIs, scalable feature development, and performance optimization, with a strong focus on clean, maintainable code and user-centric solutions.
           </p>
           <br />
 
@@ -42,7 +39,7 @@ const About = ({ blackAndWhite }) => {
             style={backgroundButtonColorStyle}
           >
             Download CV
-            <i class="uil uil-file-info-alt "></i>
+            <i className="uil uil-file-info-alt "></i>
           </a>
         </div>
       </div>
